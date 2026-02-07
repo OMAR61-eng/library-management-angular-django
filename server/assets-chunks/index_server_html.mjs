@@ -6,10 +6,10 @@ export default `<!doctype html>
   <base href="C:/Program Files/Git/library-management-angular-django/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles-4BOVM7M3.css"></head>
+<link rel="stylesheet" href="C:/Program Files/Git/library-management-angular-django/styles-4BOVM7M3.css"></head>
 <body><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
 </script>
   <app-root></app-root>
-<link rel="modulepreload" href="chunk-4TQX4ESD.js"><link rel="modulepreload" href="chunk-TPZGRKC4.js"><script src="scripts-4WTXLPQR.js" defer=""></script><script src="main-6XQW7TUB.js" type="module"></script></body>
+<link rel="modulepreload" href="C:/Program Files/Git/library-management-angular-django/chunk-4TQX4ESD.js"><link rel="modulepreload" href="C:/Program Files/Git/library-management-angular-django/chunk-TPZGRKC4.js"><script src="C:/Program Files/Git/library-management-angular-django/scripts-4WTXLPQR.js" defer=""></script><script src="C:/Program Files/Git/library-management-angular-django/main-6XQW7TUB.js" type="module"></script></body>
 </html>
 `;
