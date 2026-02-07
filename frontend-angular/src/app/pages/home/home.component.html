@@ -1,0 +1,99 @@
+<div class="content" dir="rtl">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="d-flex justify-content-between">
+              <h3 class="card-title">اجمالي عدد الكتب</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex">
+              <p class="d-flex flex-column">
+                <span class="text-bold text-lg">{{ allCount() }}</span>
+                <span>اجمالي عدد الكتب</span>
+              </p>
+            </div>
+            <app-status-pie-chart
+              [available]="availableCount()"
+              [sold]="soldCount()"
+              [rentaled]="rentalCount()"
+            ></app-status-pie-chart>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="d-flex justify-content-between">
+              <h3 class="card-title">الارباح</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex">
+              <p class="d-flex flex-column">
+                <span id="totalsalarys" class="text-bold text-lg">${{ soldTotal() + rentalTotal() }}</span>
+              </p>
+            </div>
+            <app-profit-bar-chart
+              [sold]="soldTotal()"
+              [rental]="rentalTotal()"
+            ></app-profit-bar-chart>
+            <div class="d-flex flex-row justify-content-end">
+              <span class="mr-2">
+                <i class="fas fa-square text-primary"></i> الارباح من بيع الكتب
+                <p id="soldtotals">{{ soldTotal() }}</p>
+              </span>
+              <span>
+                <i class="fas fa-square text-gray"></i> الارباح من استعارة الكتب
+                <p id="rentedtotals">{{ rentalTotal() }}</p>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-8">
+        <div class="input-group mb-3">
+          <input type="search" class="form-control" placeholder="بحث" [ngModel]="search()" (ngModelChange)="onSearchChange($event)">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 text-center">
+        <app-category-filter
+          [categories]="categories()"
+          [activeCategoryId]="activeCategory()"
+          (categoryChange)="onCategoryChange($event)"
+        ></app-category-filter>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-9">
+        <app-book-grid [books]="filteredBooks()"></app-book-grid>
+      </div>
+      <div class="col-lg-3">
+        <app-status-filter
+          [activeStatus]="activeStatus()"
+          (statusChange)="onStatusChange($event)"
+        ></app-status-filter>
+
+        <!-- بدل السطرين الغلط دول -->
+<!-- <app-add-book-form [categories]="categories()" (submitted)="onAddBook($event)"></app-add-book-form> -->
+
+<!-- استخدم الكود ده بدالهم -->
+<app-add-book-form (bookAdded)="onBookAdded($event)"></app-add-book-form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,69 @@
+<div class="card card-widget widget-user shadow book-card" [ngClass]="'book' + (book.status || '')">
+  <div class="btn-group options" role="group">
+    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" [href]="'/update/' + book.id">تعديل</a>
+      <a class="dropdown-item" [href]="'/delete/' + book.id">حذف</a>
+    </div>
+  </div>
+
+  <div
+    class="widget-user-header text-white"
+    [ngStyle]="{
+      background: book.photo_book_url ? 'url(' + book.photo_book_url + ')' : undefined,
+      'background-size': book.photo_book_url ? 'cover' : undefined,
+      'background-position': book.photo_book_url ? 'center' : undefined
+    }"
+    [class.bg-info]="!book.photo_book_url"
+  >
+    <h3 class="widget-user-username font-weight-bold">{{ book.title }}</h3>
+    <h5 class="widget-user-desc">{{ book.author }}</h5>
+  </div>
+
+  <div class="widget-user-image" *ngIf="book.photo_author_url">
+    <img class="img-circle elevation-2 border border-white shadow" [src]="book.photo_author_url" alt="Author">
+  </div>
+
+  <div class="card-footer pt-5">
+    <div class="row text-center">
+      <div class="col-sm-4 border-right">
+        <div class="description-block">
+          <h5 class="description-header text-dark">{{ book.pages }}</h5>
+          <span class="description-text text-muted">صفحة</span>
+        </div>
+      </div>
+
+      <div class="col-sm-4 border-right">
+        <div class="description-block">
+          <ng-container [ngSwitch]="book.status">
+            <ng-container *ngSwitchCase="'rentaled'">
+              <h5 class="description-header text-dark">${{ book.retal_price_day }}</h5>
+              <span class="description-text text-muted">في اليوم</span>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              <h5 class="description-header text-dark" *ngIf="book.price">${{ book.price }}</h5>
+              <span class="description-text text-muted" *ngIf="book.price">السعر</span>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="description-block">
+          <h5 class="description-header"
+              [ngClass]="{
+                'text-success font-weight-bold': book.status === 'available',
+                'text-danger font-weight-bold': book.status === 'sold',
+                'text-secondary font-weight-bold': book.status === 'rentaled',
+                'text-warning': !book.status
+              }">
+            {{ book.status === 'available' ? 'متاح' : book.status === 'sold' ? 'مُباع' : book.status === 'rentaled' ? 'مؤجَّر' : 'غير معروف' }}
+          </h5>
+          <span class="description-text text-muted">الحالة</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

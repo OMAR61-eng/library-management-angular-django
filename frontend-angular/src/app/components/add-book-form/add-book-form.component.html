@@ -1,0 +1,72 @@
+<div id="bookform" class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">اضافة كتاب</h3>
+  </div>
+  <form (ngSubmit)="submit()" [formGroup]="form" enctype="multipart/form-data" novalidate>
+    <div class="card-body">
+      <div class="form-group">
+        <label>العنوان</label>
+        <input formControlName="title" type="text" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>المؤلف</label>
+        <input formControlName="author" type="text" class="form-control">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label>الصفحات</label>
+          <input formControlName="pages" type="number" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+          <label>السعر</label>
+          <input formControlName="price" type="number" step="0.01" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+          <label>سعر اليوم (استعارة)</label>
+          <input formControlName="retal_price_day" type="number" step="0.01" class="form-control">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>مدة الاستعارة</label>
+          <input formControlName="retal_period" type="number" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label>إجمالي الاستعارة</label>
+          <input formControlName="total_rental_price" type="number" step="0.01" class="form-control">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>الحالة</label>
+          <select class="form-control" formControlName="status">
+            <option value="available">متاح</option>
+            <option value="sold">تم بيعه</option>
+            <option value="rentaled">تم استعارته</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label>التصنيف</label>
+          <select class="form-control" formControlName="category_id">
+            <option [ngValue]="null">اختر تصنيف</option>
+            <option *ngFor="let cat of categories" [ngValue]="cat.id">{{ cat.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>صورة الكتاب</label>
+          <input type="file" class="form-control-file" (change)="onPhotoBookChange($event)">
+        </div>
+        <div class="form-group col-md-6">
+          <label>صورة المؤلف</label>
+          <input type="file" class="form-control-file" (change)="onPhotoAuthorChange($event)">
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">اضافة</button>
+    </div>
+  </form>
+</div>
+

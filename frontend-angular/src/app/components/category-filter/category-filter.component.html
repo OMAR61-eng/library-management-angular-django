@@ -1,0 +1,14 @@
+<div class="btn-group flex-wrap" role="group" aria-label="Book Categories">
+  <a class="btn m-1"
+     [ngClass]="{'btn-primary': activeCategoryId === null, 'btn-outline-primary': activeCategoryId !== null}"
+     (click)="select(null)">
+    الكل
+  </a>
+  <a class="btn m-1"
+     *ngFor="let category of categories"
+     [ngClass]="{'btn-primary': activeCategoryId === category.id, 'btn-outline-primary': activeCategoryId !== category.id}"
+     (click)="select(category.id)">
+    {{ category.name }}
+  </a>
+</div>
+
