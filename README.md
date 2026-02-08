@@ -1,29 +1,66 @@
+# 📚 Library Management System
 
-# Clinic Appointment System (Django + DRF + Vanilla JS)
+A full-stack web application for managing a library system with book inventory, sales, rentals, and profit analytics.
 
-Simple full-stack example with a Django REST API and a minimal frontend (HTML/CSS/JS) to manage clinic appointments.
+---
 
-## Features
-- CRUD for Appointments
-- Filter by doctor/patient/status
-- Auto-create Profile for new users (default role: patient)
-- Minimal frontend that consumes the API
+## 🔍 Overview
 
-## Quickstart
+This project is a complete Library Management System built using **Angular** for the frontend and **Django** for the backend.  
+It allows administrators to manage books, track sales and rentals, and visualize profits through an interactive dashboard.
+
+The system communicates using REST APIs and follows a clean, modular architecture.
+
+---
+
+## 🚀 Features
+
+- 📖 Add, edit, and delete books
+- 📊 Dashboard with profit analytics
+- 🟢 Book status tracking:
+  - Available
+  - Sold
+  - Rented
+- 🗂 Category-based book filtering
+- 🔍 Search functionality
+- 📈 Charts using Chart.js
+- 🧩 Modular and scalable design
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+- Angular
+- TypeScript
+- HTML5 & SCSS
+- AdminLTE
+- Chart.js
+
+### Backend
+- Django
+- Django REST Framework
+
+### Database
+- SQLite
+
+### Tools
+- Git & GitHub
+- REST APIs
+
+---
+
+## 📸 Screenshots
+
+> Screenshots will be added here.
+
+---
+
+## ⚙️ Installation & Setup
+
+### Backend (Django)
+
 ```bash
-python -m venv venv
-venv\Scripts\activate  # on Windows
 pip install -r requirements.txt
-
 python manage.py migrate
-python manage.py createsuperuser
 python manage.py runserver
-
-# Visit http://127.0.0.1:8000/
-# Create doctor/patient users in /admin and use their IDs on the page form.
-```
-
-## Tech
-- Django, Django REST framework
-- SQLite (default)
-- Vanilla HTML/CSS/JS frontend
